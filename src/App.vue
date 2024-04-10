@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Blog</a>
+      <a class="navbar-brand" href="/">Blog</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -9,26 +9,23 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <router-link to="/" class="nav-link active">
+              Home
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">목록</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">글쓰기</a>
+            <router-link to="/list" class="nav-link">
+              목록
+            </router-link>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="container mt-4 mb-4">
-    <h5> Vue로 만든 블로그</h5>
-  </div>
-  <List :blogData="blogData"/>
+  <router-view :blogData="blogData" ></router-view>
 </template>
 
 <script>
-import List from '@/components/List.vue'
 import blogData from '@/assets/blog.js'
 
 export default {
@@ -39,7 +36,6 @@ export default {
     }
   },
   components: {
-    List
   }
 }
 </script>
